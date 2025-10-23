@@ -1,0 +1,48 @@
+// In a hospital management application check the availability of doctor based on speciality.
+Doctor_Details = {
+    {"DocName": "Siva","Speciality":"Cardio","Day":{"Monday","Tuseday","Wednesday","Thursday","Friday"},
+     "Available_From": '10:00:00',"Available_To":'14:00:00'},
+    {"DocName": "Prem","Speciality":"Ortho","Day":{"Tuseday","Thursday","Friday"},
+     "Available_From": '06:00:00',"Available_To":'11:00:00'},
+    {"DocName": "Kumar","Speciality":"Neuro","Day":{"Monday","Wednesday","Friday"},
+     "Available_From": '15:00:00',"Available_To":'22:00:00'},
+    {"DocName": "Ram","Speciality":"Cardio","Day":{"Monday","Tuseday","Wednesday","Thursday"},
+     "Available_From": '15:00:00',"Available_To":'21:00:00'}
+};
+
+// Booking Inputs
+specialityNeeded = "Neuro";   
+bookingDay = "Wednesday";         
+bookingTime = '16:30:00';      
+
+availableDoctors = list();
+
+//code
+for each doc in Doctor_Details
+{
+    if(doc.get("Speciality") == specialityNeeded)
+    {
+        daysList = doc.get("Day");
+        if(daysList.contains(bookingDay))
+        {
+            startTimeObj = totime(doc.get("Available_From"),"HH:mm:ss");
+            endTimeObj = totime(doc.get("Available_To"),"HH:mm:ss");
+            bookingTimeObj = totime(bookingTime,"HH:mm:ss");
+//             info "StarTime: "+ startTimeObj; //StarTime: 01-Jan-1970 15:00:00
+            if(bookingTimeObj >= startTimeObj && bookingTimeObj <= endTimeObj)
+            {
+                availableDoctors.add(doc.get("DocName"));
+// 				info availableDoctors ;
+            }
+        }
+    }
+}
+
+if(availableDoctors.isEmpty())
+{
+    info "No doctors available for " + specialityNeeded + " on " + bookingDay + " at " + bookingTime;
+}
+else
+{
+    info "Available Doctors for " + specialityNeeded + " on " + bookingDay + " at " + bookingTime + ": " + availableDoctors;
+}
