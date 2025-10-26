@@ -1,0 +1,101 @@
+//Find the given num is Positive , Negative or zero
+num = -10;
+if (num == 0){
+	info num + "is Zero" ;
+}else if ( num > 0 ) 
+{
+	info num + "is Positive" ;
+}else
+{
+	info num + "is Negative" ;
+}
+____________________________________
+// Find the given number is divisible by 5 or 11
+num = 44;
+
+ if (( num % 5 == 0) &&  (num % 11 == 0 )){
+	 info num +" is Divisible by both 5 & 11";
+ }else if  ( num % 5 == 0) 
+ {
+	 info num +" is Divisible by 5";
+ }else if ( num % 11 == 0 ) 
+ {
+	 info num +" is Divisible by 11";
+ }else 
+ {
+	 info num +" is not Divisible by 5 & 11";
+ }
+_______________________________________________
+
+// Write a Deluge Script to check whether a number is even or odd.
+num = 6;
+if ( num % 2==0) 
+{
+	info  num+ " is even number";
+}
+else 
+{
+	info num+ " is odd number";
+}
+--------------------------------------------------------------
+// Write a Deluge Script to check whether a year is a leap year or not.
+num = 2004;
+if ( num % 4 ==0) 
+{
+	info  num+ " Leap Year" ;
+}else 
+{
+	info num+ " Not leepyear" ;
+}
+__________________________________________________
+// Write a Deluge Script to check whether a character is an alphabet or not
+char= "9";
+if (char.toLowerCase().matches("[a-z]"))
+{
+	info "Alphabet";
+	} else
+	{
+		info "Not a Alphabet" ;
+	}
+_______________________________________________________________________________________________
+// Write a Deluge Script to input any alphabet and check whether it is vowel or consonant.
+ char = "h";
+ if (char.contains("a")|| char.contains("e")|| char.contains("i")|| char.contains("o")|| char.contains("u")){
+	 info "It is vowel";
+ }else 
+ {
+	 info "It is consonant";
+ }
+_______________________________________________________________________
+//Find the given is number, Alpha or special character
+
+char= "@";
+char = char.toLowerCase();
+if (char.matches("[a-z]"))
+{
+	info char+" is Alpha";
+}else if (char.matches("[0-9]")) {
+	info char+" is Numeric";
+}else 
+{
+	info char+" is a Special character";
+}
+______________________________________________________________
+//Print time, date , datetime in deluge format
+dateTime ='1-Jan-1990 20:50:36';
+datee = '1-Jan-2000';
+time ='20:50:23';
+
+info "Date: "+datee ;
+info "Time: "+time;
+info "Date and Time: "+dateTime;
+
+info "This will print current date using (today) "+today;
+info "This will print current Time using (zoho.currenttime)"+zoho.currenttime;
+info "This will print current Date (zoho.currentdate) "+zoho.currentdate;
+
+____________________________
+// Find the Square of the given number
+num = 80;
+info "Square of "+ num + " is "+num*num;
+info "Using Square function "+ num.power(2);
