@@ -1,0 +1,113 @@
+//Find add,sub,mul,div for any 2 numbers
+a = 10;
+b = 5;
+
+// calculate
+add = a+b;
+sub = a-b;
+mul = a*b;
+div = a/b;
+
+//output
+info "Add = "+ add;
+info "Sub = "+ sub;
+info "Multi = "+ mul;
+info "Div = "+ div;
+__________________________________________________
+
+// Find Area and Perimeter of Square 
+
+// Area of Suquare
+side = 5;
+area = side * side;
+info "Area of Square: "+area;
+
+// Perimeter of Square
+peri = 4 * side;
+info "Perimeter of Square:" + peri;
+_______________________________________
+// Find Area and circumference of a circle 
+
+// Area of a circle 
+r = 15;
+pi = 3.14159;
+
+area = pi * (r*r);
+info "Area of circle: " + area;
+
+//circumference of circle
+cir = 2* pi * r;
+info "circumference of circle: " + cir;
+_______________________________________________
+// Find Area and Perimeter of a Rectangle
+
+// Area of Rectangle
+area = l*b;
+info "Area of Rectangle: " + area;
+
+// Perimeter of Rectangle
+per = 2* (l+b);
+info "Perimeter of Rectangle:" + per;
+___________________________________________
+
+// Find the remainder of given 2 numbers
+
+a= 144;
+b = 7;
+mod = a % b;
+info "Modulo of given number: "+ mod;
+________________________________________
+//Find the quotient of given 2 numbers
+
+a = 234 ;
+b = 6 ;
+quo = a / b;
+info "Quotient of given number: "+ quo;
+________________________________________
+// Find Square of given num 
+
+a = 5;
+square = a * a;
+info "Square of given num: " + square;
+___________________________________________
+//Find the Maximum of the given 2 numbers
+
+a = 12;
+b = 20;
+// maximum = max(a,b);
+// info maximum;
+
+if(a> b){
+	info "A is greater than B";
+}else 
+{
+	info "B is greater than A";
+}
+_________________________________________________________________
+//Find the Maximum of the given 3 numbers
+
+num1 = 50;
+num2 = 15;
+num3 = 20;
+
+if (num1 > num2 && num1 > num3)
+{
+	info " 1st num ["+num1+"] is greater than "+num2 +" & "+num3;
+} else if ( num2 > num1 && num2 > num3 ) 
+{
+	info  "2nd num ["+num2+"] is greaterr than "+num1 +" & "+num3;	
+} else if ( num3 > num1 && num3 > num2 ) 
+{
+	info  "3rd num ["+num3+"] is greaterr than "+num1 +" & "+num2;
+}
+_________________________________________________________________________
+// Find the given string contains vowels or not ?
+sname="Elephant";
+
+if (sname.contains("a") || sname.contains("e") || sname.contains("i") || sname.contains("o") || sname.contains("u") )
+{
+	info sname+" has vowels" ;
+} else 
+{
+	info sname+" dosen't contains vowels" ;
+}
