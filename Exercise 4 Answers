@@ -1,0 +1,113 @@
+//4.1 .Write a deluge script to create a new list, add some colors (string) and print out the collection.
+color={"red", "blue","green"};
+color.add("pink");
+info collection(color) ;
+_______________________________________________________
+//4.2 . Write a deluge script to iterate through all elements in a list
+
+colors = {"red", "blue","green"};
+for each color in colors
+{
+	info color;
+}
+_________________________________________________________
+//4.3 Write a deluge script to search an element in a list.
+colors = {"red", "blue","green"};
+search = "rfed";
+for each color in colors
+{
+	if(search == color){
+		info search ; 
+		break;
+	}else 
+    {
+		info search+ " is not in list";
+		break;
+    }
+}
+__________________________________________________________________
+//4.4 . Write a deluge script to remove the third element from a list
+
+colors = {"red", "blue","green"};
+rem_ele = 3;
+rem_ele = rem_ele-1;
+remove = colors.remove(rem_ele);
+info collection(colors) ;
+________________________________________________________________________
+// 4.5 Write a deluge script to print all the elements of a List using the position of the elements
+Lists = {"a","b","c","d","e"};
+
+for each  List in Lists
+{
+	result = Lists.indexOf(List);
+	
+info result + "-" + List  ;
+}
+_________________________________________________________________________
+//4.6 Write a deluge script to find whether the number is divisible by 5 or not from the given list. Marks= {90,65,23,90,34}
+
+Marks= {90,65,23,90,34};
+for each mark in Marks
+{	
+	if(mark % 5 == 0){
+		info mark + " is divisible by 5";
+	}else 
+    {
+		info mark+" is not divisible by 5";
+    }
+}
+____________________________________________________________________
+// 4.7.Write a deluge script to remove the duplicate value and print each element in lowercase from the given list.
+ Flowers= {"rose", "lotus", "lily", "Jasmine", "lily","sun flower"};
+ 
+ dupli = Flowers.distinct(); 
+ for each low in dupli
+ {
+	 info low.toLowerCase() ;
+ }
+
+
+______________________________________________________________
+// 4.8 Write a deluge script to find the absolute value for the given list. Numbers={123.5, 789.90, 876.65, 8976.76}
+
+Numbers={123.5, -789.90, 876.65, 8976.76};
+
+for each num in Numbers{
+	abs = num.abs();
+	info abs ;
+}
+//  List= {12,-11,22,-77,34,33,90};
+//  for each n in  List{
+// 	   if(n > 0 ){
+// 		   info n;  
+// 	   }else 
+//       {
+// 			abs = n - (n*2); //-11 - (22)
+// 			info n ;
+// 			info abs;		  
+//       }
+//   }
+_______________________________________________________
+// 4.9 write a deluge script to write the given number into Ascending order.
+
+Numbers_list= {87,90,67,23,56,90,65,90};
+short = Numbers_list.sort(true);
+info short ;
+______________________________________________________________
+// 4.10 write a deluge script to find the even and odd numbers from a list.
+List= {12,11,22,77,34,33,90};
+EvenList = {};
+OddList = {};
+for each n in List{
+	if(n % 2 == 0){
+	EvenList.add(n);	
+	}else 
+    {
+		OddList.add(n);
+    }
+}
+info "Given List: "+ List ;
+info"Even List: "+EvenList;
+info "Odd List: "+ OddList;
+
+
