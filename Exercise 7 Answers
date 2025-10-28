@@ -1,0 +1,190 @@
+ //7.1 Write a deluge script to calculate the age from given DOB and check whether they are eligible for voting.
+dob = '01-08-2020';
+current_year = today;
+info dob.yearsBetween(current_year);
+
+age = current_year.getYear() - dob.getYear();
+info "Age"+age;
+if ( age >= 18 ) 
+{
+	info "Eligible to vote" ;
+}else 
+{
+	info "Not Eligible to vote" ;
+}
+
+_________________________________________________________________
+// 7.2 Write a script to calculate the volume of a cylinder given its radius and height
+pi = 3.14;
+radius = 6;
+height =15;
+
+Volume = pi * radius.power(2) * height;
+info "Volume of cylinder is: "+Volume.ceil() ;
+_________________________________________________________________
+// 7.3 Write a script to classify a person into age groups based on their age
+// i. age less than 13 consider it as Child
+// ii. Age Between 13 - 20 consider it as Teenager
+// iii. Age Between 20 - 59 consider as Adult
+// iv. above 59 consider as Senior citizen
+ages = {5,15,48,23,87,35};
+child = list();
+teen = list();
+adult = list();
+senior = list();
+for each age in ages
+{
+	if ( age < 13 ) 
+    {
+		child.add(age);
+		
+	}
+	else if ( (age >= 13) && (age < 20) ) 
+    {
+		teen.add(age);
+		}
+		else if ( (age >= 20) &&  (age <= 59) ) 
+    {
+		adult.add(age);
+    }else 
+    {
+		senior.add(age);
+    }
+}
+info "Given List:: "+ages ;
+info "Child:: "+ child ;
+info "Teen:: "+ teen ;
+info "Adult:: "+ adult ;
+info "Senior:: "+ senior ;
+_______________________________________________________________________________________
+//7.4 Write a script to calculate the discount and final amount based on the total purchase amount.
+// i.  Purchase amount less than 1000, no discount applied
+// ii. Purchase amount greater than 1000, 10% discount applied
+// iii. Purchase amount greater than 2000, 15% discount applied
+
+amount = 2000.754;
+total_amount = 0;
+dis = 0;
+info "Purchase Amount            ::Rs."+amount;
+if ( amount < 1000){
+	total_amount = amount;
+	info "Discount amount    ::Rs. "+dis; 
+	}else if ( (amount >= 1000) &&  (amount < 2000) ) 
+{
+	dis= amount * 0.10;
+	total_amount = amount-dis;
+	info "10% Discount applied   ::Rs."+dis ;
+}else if ( amount >= 2000 ) 
+{
+	dis = amount* 0.15;
+	total_amount = amount-dis;
+	info "15% Discount applied     ::Rs."+dis ;
+}
+
+info "Total Purchase Amount  ::Rs."+total_amount.round(2) ;
+info "_______________________________" ;
+//_________________________________________________________________________________________
+// 7.5 Write a script to determine loan eligibility based on income and credit score.
+// i.Income is greater than 30000 and credit score above 500 is only eligible for loan.
+
+income = 25000;
+cScore = 500;
+if ((income>30000) && (cScore >= 500)){
+	info " Eligible for loan" ;
+}else 
+{
+	info "Not Eligible for loan" ;
+}
+_____________________________________________________________________________________
+// 7.6 Write a script to suggest clothing based on the weather condition.
+// i.Hot: Temperatures above 30°C
+// ii.Warm: Temperatures between 15°C and 30°C
+// iii.Cold: Temperatures below 15°C
+temp = 10;
+if(temp >=30){
+	info "Hot: Temperatures above 30°C" ;
+	}else if ( (temp >= 15) && (temp <= 30)) 
+	{
+		info "Warm: Temperatures between 15°C and 30°C" ;
+	}
+else 
+    {
+		info "Cold: Temperatures below 15°C" ;
+    }
+___________________________________________________________________________________ 
+//7.8 Write a script to calculate the mean and standard deviation of a list of numbers.
+Numbers ={10, 12, 23, 23, 16, 23, 21, 16};
+a = 0;
+sum = 0;
+for each n in Numbers{
+	a= n+a;
+}
+mean = a/Numbers.size();
+info "Mean:"+ mean ;
+
+for each d in Numbers
+{
+	sd = mean - d;
+	sqr = sd*sd;
+	sum = sum + sqr;
+// 	info sd;
+// 	info "Square : " +sqr;
+}
+info "Sum of Squares: "+sum ;
+xd = sum/(Numbers.size()-1);
+SD = xd.sqrt();
+info SD ;
+___________________________________________________________________________________
+//7.9 Write a script to calculate the total cost of multiple items given their prices and quantities given in a separate list.
+product={"oil","Shamboo","Biscuit"};
+prices = {10,20,30}; // Prices of items
+quantities = {9, 1, 9}; // Quantities of items
+indx = 0;
+mtmap = map();
+ for each rec in prices {
+	 mtmap.put(product.get(indx),rec * quantities.get(indx));
+	 indx+=1;
+ }
+ info mtmap;
+____________________________________________________________
+// 11.10 Write a script to calculate the total time spent on tasks given a list of time durations in hours and minutes.
+// Sample Input: durations = {"01:30", "02:45", "01:45"};
+// Sample Output: 6 hours and 0 Minutes
+ durations = {"01:30", "02:45", "01:45"};
+ hours=0;
+ hrs1=0;
+ minutes=0;
+ min1=0;
+ for each a in durations
+ {
+	 hours=a.getPrefix(":").toNumber();
+	  minutes=a.getSuffix(":").toNumber();
+	  hrs1=hours+hrs1;
+	  min1=minutes+min1;
+	  a=min1/60;  
+	  
+	  info "hours"+ hours ;
+	  info "min"+ minutes ;
+ }
+ info hrs1 ;
+ info min1 ;
+ info a;
+hrs1=hrs1+a;
+info hrs1 ;
+_________________________________________________________________
+// 7.11. Generate a number list based on given input.
+// Sample Input: 9
+//Sample Output: {1,2,3,4,5,6,7,8,9}
+// prime number 
+n=9;
+dyn_lst= " ".leftPad(n).toList("");
+i = 1;
+a={};
+for each  number in dyn_lst
+{
+	a.add(i);
+    info i;
+	i = i+1;
+	
+}
+info a ;
