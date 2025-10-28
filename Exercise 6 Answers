@@ -1,0 +1,140 @@
+// 6.1 ind the largest number in the list - Input = {22,44,3,45,78,999,99};
+num = {22,44,3,45,78,999,99};
+
+// info num.largest() ;
+inputs = {22,44,3,45,78,999,99};
+inputs.sort();
+length = inputs.size();
+largest_number = inputs.get(length-1);
+
+info largest_number ;
+______________________________________________________
+// 6.2 Second Largest number in the list - Input = {22,44,3,45,78,999,99}
+num = {22,44,3,45,78,999,99};
+//info num.nthlargest(2) ;
+inputs = {22,44,3,45,78,999,99};
+inputs.sort();
+length = inputs.size();
+largest_number = inputs.get(length-2);
+
+info largest_number ;
+_________________________________________________________________________
+// 6.3. Find duplicates in the list - Input = [1, 2, 3, 4, 5, 1, 2, 3];
+
+inputs = {1, 2, 3, 4, 5, 1, 2, 3};
+uniqueList = {};
+
+for each number in inputs
+{
+    if (!uniqueList.contains(number))
+    {
+        uniqueList.add(number);
+    }
+    else
+    {
+        info "Duplicate: " + number;
+    }
+}
+info "Unique values: " + uniqueList;
+__________________________________________________________________________________
+//6.4. Shuffel numbers in a given list - Input = [1, 2, 3, 4, 5, 6,7, 8];
+inputs = {1, 2, 3, 4, 5, 6, 7, 8};
+	new_list = {};
+	for each i in inputs
+	{
+		random = randomnumber(0,inputs.size()-1);
+		value = inputs.get(random);
+		if (!new_list.contains(value))
+		{
+			new_list.add(value);
+		}
+	}
+	info new_list;
+____________________________________________________________________
+ //6.5. TO REVERSE THE NUMBERS IN GIVEN LIST: - Input = {1, 2, 3, 4, 5};
+
+inputs = {1,2,3,4,5,6,7,8};
+count = inputs.size();
+rev = list();
+info "Given list:    "+inputs;
+for each ins in inputs
+{
+	rev.add(count);
+	count = count-1;
+}
+info "Reversed list:   "+rev ;
+____________________________________________________________________________
+// 6.6 Print the output from the given string or text into a separate list character_list = {"fny46$@sdv","ib456&^dfg","6165dvd$%&%"};
+// Output :
+// Alpha list : ["f","n","y","s","d","v"],["i","b","d","f","g"],["d","v","d"] Number list : ["4","6"],["4","5","6"],["6","1","6","5"] Character list : ["$","@"],["&","^"],["$","%","&","%"]
+ character_list = {"fny46$@sdv","ib456&^dfg","6165dvd$%&%"};
+ alpha_list=list();
+ num_list=list();
+ special_list=list();
+ 
+ for each char in character_list
+ {
+	sublist=char.toList("") ;
+	for each a in sublist
+	{
+		if ( a.matches("[a-z]"))  
+		{
+			alpha_list.add(a);
+		}
+		else if ( a.matches("[0-9]") ) 
+		{
+			num_list.add(a);
+		}
+		else 
+		{
+			special_list.add(a);
+		}
+
+	}
+}
+ info "Alpha list :   "+ alpha_list ;
+ info "Number list : "+ num_list ;
+ info "Character list :"+ special_list ;
+_______________________________________________________________________________
+// 6.7. Order Processing System: You are building an order processing system in Deluge, and you need to store customer information, including their name, email, and order details.
+// Design a Map data structure to store this information, and write a Deluge script to add a new customer, update an existing customer's order, and retrieve a customer's order details.
+cust1={"id":101,"name":"Ram","email":"ram@gmail.com","order_details":"Pen"};
+cust2 = map();
+new = list();
+
+new.add(cust1);
+cust2.insertAll({"id":102,"name":"Siva","email":"siva@gmail.com","order_details":"Book"});
+new.add(cust2);
+// info new ;
+
+cust2.update("order_details","Paint");
+// info cust2 ;
+for each order in new
+{
+	ord= order.get("order_details") ;
+	name= order.get("name") ;
+	mail= order.get("email") ;
+	info "customer Name:  "+name ;
+	info "customer Mailid:  "+mail ;
+	info "Order details:  "+ord ;
+	info "________________________________________________________________" ;
+}
+___________________________________________________________________________________________
+//6.8 Product Catalog: You are building a product catalog system in Deluge, and you need
+// to store product information, including product ID, name, description, and price. Design
+// a Map data structure to store this information, and write a Deluge script to add a new
+// product, update an existing product's details, and retrieve a product's details by ID.
+
+product = {"101":{"Id":101,"name":"pen","des":"aaaaaaa","price":10}};
+//Add another product 
+product.insertAll({"102":{"Id":102,"name":"book","des":"bbbbbb","price":250}});
+info "Product List:"+product ;
+//update the product details
+for each rec in product.keys()
+{	
+    val = product.get(rec);
+	if(val.get("name") == "book"){
+		val.update("name","Note");
+	}
+}
+info"Updated List:"+ product ;
