@@ -1,0 +1,127 @@
+// 5.1 Write a deluge script to retrieve an element (at a specified index) from a given list List= {12,11,22,77,34,33,90};
+
+Lists = {"a","b","c","d","e"};
+input = 5;
+if ( Lists.size() > input)
+{
+	for each n in Lists{
+		if(input == Lists.indexOf(n))
+		{
+		info n + " is in the position of "+ input ;
+		}
+	}
+}else 
+{
+	info input+" is not in list Enter a valid input" ;
+}
+________________________________________________________
+// 5.2 Write a deluge script to insert an element into the list at first position.
+List= {12,11,22,77,34,33,90};
+newValue = {2,""};
+newList = newValue.concat(List);
+info newList ;
+_____________________________________________________________
+//5.3  Write a deluge script to find the product of the list of numbers. list= {6,8,9,34,7};
+
+List = {6,8,9,34,7};
+product = 1;
+
+for each  num in List
+{
+    product = product * num;
+	info product ;
+}
+info "Product of the list is: " + product;
+___________________________________________________________________________
+//5.4 .For a given number Print its Multiplication table by using list (Number=6)
+num = 4;
+List = {1,2,3,4,5,6,7,8,9,10};
+info "Multiplication table of "+ num;
+for each n in List
+{
+	multi = n * num;
+	info n +"*"+ num + "="+ multi;
+}
+__________________________________________________________________________________
+//5.5 write a deluge script to print the list of numbers in words.
+Numbers= {3, 6, 9, 10};
+for each n in Numbers{
+	info n+ " = "+n.toWords("en-us");
+}
+___________________________________________________________
+// 5.6 write a deluge script to print the sum of all odd numbers in the given list.
+numbers= {1,8,9,45,78,34};
+sum = 0;
+for each n in numbers{
+	if(n.isOdd()){
+		sum = n + sum;
+		info n;
+	}
+}
+info "sum of all odd nums: "+sum;
+
+______________________________________________________________
+// 5.7.write a deluge script to count the all odd numbers from the given list.
+numbers= {4,90,88,77,11,13,1234};
+count = 0;
+for each n in numbers{
+	if(n.isOdd()){
+		count = count + 1;
+	}
+}
+info "There are "+count+ " odd numbers in the given list";
+
+_________________________________________________________________
+// 5.8.write a deluge script to print the words (always, like, be) for each sentences in the given list.
+Sentences= {"Positive thinking always leads to success", "I like Nature", "Be positive"};
+find1 = "always";
+find2 = "like";
+find3 = "Be";
+for each sent in Sentences{
+	if(sent.contains(find1)){
+		info find1 ;
+	}
+	if(sent.contains(find2)){
+		info find2;
+	}
+	if(sent.contains(find3)){
+		info find3 ;
+	}
+}
+//Another method without contains() function ----------------------------
+
+Sentences= {"Positive thinking always leads to success", "I like Nature", "Be positive"};
+
+for each sen in Sentences{
+	subList = sen.toList(" ");
+	info subList ;
+		for each n in subList{
+			if (n == "always"){
+				info "always" ;
+			} 
+						if (n == "like"){
+				info "like" ;
+			} 
+						if (n == "Be"){
+				info "be" ;
+			} 
+		}
+		
+}
+____________________________________________________________
+//5.9 write a deluge script to print the index value for each elements in the given list.
+Fruits= {"Strawberry", "Cherry", "Apple", "Banana"};
+for each fruit in Fruits
+{
+	info "Index of "+ fruit+" is "+Fruits.indexOf(fruit) ;
+}
+_____________________________________________________
+// 5.10 write a deluge script to find the square root of each number in the list and Print the value into the list.
+numbers= {44,89,99,100,12};
+new = {};
+for each num in numbers
+{
+	a=num.sqrt().round(0);
+	new.add(a);
+}
+info "Square root of each num in list is:: "+collection(new) ;
