@@ -1,0 +1,239 @@
+// 1. Write a Deluge program for the candidate who is eligible to vote using Map. (Minimum - 10 Members)
+
+candidate = {"Kumar":'29-Sep-2003',"Naveen":'10-Aug-2005',"Vignesh":'25-Jan-2002',"Mani":'16-May-2001',"Balu":'11-Dec-2007',"Raj":'14-Feb-2006',"Sara":'30-Mar-2000',"Ajith":'18-Jul-1999',"Ramya":'01-Jun-2008',"Devi":'22-Oct-2004' };
+eligible = map();
+Noteligible = map();
+
+for each cand in candidate
+{
+
+	if(cand.yearsBetween(today)>= 18){
+		eligible.put(candidate.getKey(cand), cand.yearsBetween(today));
+	}else 
+    {
+		Noteligible.put(candidate.getKey(cand), cand.yearsBetween(today));
+    }
+	
+}
+info "Eligible to Vote:  "+eligible ;
+info "Not Eligible to Vote:  "+Noteligible ;
+_________________________________________________________________________________________________
+// 2. Write a Deluge Program to find the Seniority order in a family using a Map with their ages. (Minimum - 8 Members)
+
+candidate = {"Kumar":'29-Sep-2003',"Naveen":'10-Aug-2005',"Vignesh":'25-Jan-2002',"Mani":'16-May-2001',"Balu":'11-Dec-2007',"Raj":'14-Feb-2006',"Sara":'30-Mar-2000',"Ajith":'01-may-1972',"Ramya":'01-Jun-2008',"Devi":'22-Oct-2004' };
+
+family = map();
+
+for each cand in candidate
+{
+	family.put(candidate.getKey(cand),cand.yearsBetween(today));
+}
+info family.sort();
+________________________________________________________________
+// // 3. Write a Deluge Program to calculate Employee's Net Salary and Overall Tax paid by Employee using Map (Minimum - 5 Members)
+Employees ={{"name":"Kumar","Basic":8000,"HRA":14,"DA":9,"Tax":4},
+			{"name":"Divya","Basic":10000,"HRA":17,"DA":11,"Tax":6},
+			{"name":"Arun","Basic":12000,"HRA":13,"DA":12,"Tax":5},
+			{"name":"Muthu","Basic":9000,"HRA":18,"DA":8,"Tax":7},
+			{"name":"Sneha","Basic":15000,"HRA":16,"DA":10,"Tax":6}};
+			
+// // info Employees ;
+for each emp in Employees
+{
+	basic = emp.get("Basic");
+	hra = emp.get("HRA");
+	da = emp.get("DA");
+	tax = emp.get("Tax");
+	name = emp.get("name");
+	
+	hra_amt = (basic*hra)/100;
+	da_amt = (basic*da)/100;
+	tax_amt = (basic*tax)/100;
+	
+	net_salary = hra_amt + da_amt -tax_amt;
+	info "Employee Name: "+name ;
+	info "Basic salary: "+basic ;
+	info "Net salary: "+net_salary ;
+	info "Overall Tax paid: "+tax_amt ;
+	info "___________________________________________" ;
+}
+____________________________________________________________________________________
+//4.Write a script to allow the student for the given games based on their given age using
+// Map Input:Note: 
+// Age between fifteen and eighteen can play 400m Relay
+// Age below fifteen can play 100m Running
+// Age above eighteen can play Kabbadi
+
+student_sports_Id={001,002,003,004,005};
+student_Name={"abc","pqr","xyz","ijk","lmn"};
+Age={10,12,20,18,15};
+students = map();
+inde = 0;
+	for each id in student_Name{
+		students.put(student_Name.get(inde),Age.get(inde));
+		inde+=1;
+	}
+		info students ;
+	
+	for each student in students{
+// 		info student ;
+		if ( student >= 15 && student <= 18 ) 
+        {
+			name = students.getkey(student);
+			info "["+name+"] can play 400m Relay" ;
+        }else if ( student < 15 ) 
+        {
+			name = students.getkey(student);
+			info "["+name+"] can play 100m Running" ;
+        }else if ( student > 18 ) 
+        {
+			name = students.getkey(student);
+			info "["+name+"] can play Kabadi" ;
+        }else 
+        {
+			info "Invalid data" ;
+        }
+	}
+____________________________________________________________________________________________
+// 5. Write a script to check whether the given places are city,town, or rural based on the
+// population given.
+// Population={50000,4500,150000,80500,200000}
+// Places={Maduranthagam,Karunkuzhi,Kancheepuram,Chengalpet,Tambaram}
+// by using the Mapping concept.
+data = {"Maduranthagam":50000,"Karunkuzhi":4500,"Kancheepuram":150000,"Chengalpet":80500,"Tambaram":200000};
+for each da in data.keys(){
+// 	info da ;
+	place=data.get(da);
+	
+	if(place >=100000)
+	{
+		info "City: "+ da ;
+	}
+	else if(place >=50000)
+	
+	{
+		info "Town: "+ da ;
+	}
+	else if(place <=25000)
+	{
+		info "Rural: "+ da ;
+	}
+ }
+___________________________________________________________________________________
+6. Write a deluge script to convert days into years, months, weeks, and days
+Input: 373 - [Output will be : Year -1, Month - 0, Week - 1, Days - 1]
+total_days = 373;
+year=365;
+month=30;
+week=7;
+
+years = floor(total_days /year);
+bal = total_days % year;
+
+months = floor(bal/month);
+bal = bal %month;
+
+weeks = floor(bal /week);
+days = bal %week;
+
+info "Year -" + years + ", Month - " + months + ", Week - " + weeks + ", Days - " + days;
+______________________________________________________________________________________________
+//7. Sort the following as quantity sold in descending order.
+sales={{"Products":"Orange","Date_of_Sale":"2020-04-18","Quantity_Sold":20},
+ {"Products":"Apple","Date_of_Sale":"2020-02-28","Quantity_Sold":15},
+ {"Products":"Kiwi","Date_of_Sale":"2020-05-15","Quantity_Sold":50},
+ {"Products":"Peach","Date_of_Sale":"2020-11-22","Quantity_Sold":35},
+ {"Products":"Strawberry","Date_of_Sale":"2020-12-24","Quantity_Sold":10},
+ {"Products":"Watermelon","Date_of_Sale":"2021-01-11","Quantity_Sold":25}};
+mt = list();
+
+ for each sale in sales
+ {
+	 quantity = sale.get ("Quantity_Sold");
+	 mt.add(quantity) ;
+ }
+ stList= mt.sort(false);
+new = list();
+ 
+ for each fst in stList{
+	 for each sec in sales
+    {
+		if(fst == sec.get("Quantity_Sold"))
+		{
+			new.add(sec);
+		}
+    }
+ }
+ info new ;
+ 
+______________________________________________________________________________________
+//8  Write a deluge script to print the most repeated number in a given list.
+inputs = {1,2,3,4,5,1,2,3,2,3};
+uniqueList = map();
+for each number in inputs
+{
+a=inputs.getOccurenceCount(number) ; 
+uniqueList.put(number,a);
+}
+//Find max in one go
+maxNumber = "";
+maxCount = 0;
+for each k in uniqueList.keys()
+{
+	if(uniqueList.get(k) > maxCount)
+	{
+		maxCount = uniqueList.get(k);
+		maxNumber = k;
+	}
+}
+
+// Output
+info "Number: " + maxNumber + " | Count: " + maxCount;
+// info uniqueList;
+_________________________________________________________________________________________
+// 9. Sum all values inside a nested list. (EX) n = {{1,2,3}, {4,5}, {6,7,8}}
+n = {{1,2,3}, {4,5}, {6,7,8}};
+count = 0;
+for each a in n{
+	for each b in a{
+		count = b+ count;
+	}
+}
+info count ;
+__________________________________________________________________________________
+//10  Flatten a nested list into a single list. (EX) n = {{1, 2, 3}, {4, 5}, {6, 7, 8}}
+n = {{1, 2, 3}, {4, 5}, {6, 7, 8}};
+mt = list();
+for each a in n
+{
+	for each b in a{
+		mt.add(b);
+	}
+}
+info "Given list:  "+n;
+info "Flatten list:  "+mt;
+_______________________________________________________________________________________
+// 11 Find the max number from the nested list of numbers.
+n = {{1, 9, 3}, {4, 12}, {6, 7, 8}};
+mt = list();
+for each a in n
+{
+	for each b in a
+	{
+		mt.add(b);
+	}
+}
+info mt.largest() ;
+______________________________________________________________________________________
+// 12. Convert nested list to comma-separated string. (EX) n = {{1, 2, 3}, {4, 5}, {6, 7, 8}} 
+// Output = "1,2,3,4,5,6,7,8".
+n = {{1, 2, 3}, {4, 5}, {6, 7, 8}};
+mt = list();
+for each a in n
+{
+	for each b in a{
+		mt.add(b);
+	}
+}
+info "Given list:  "+n;
+info "Flatten list:  "+mt.toText();
